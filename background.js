@@ -15,12 +15,9 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 
     // Check if a word is actually selected
     if (selectedText) {
-      // Send a message to the content script to display the popup
-      chrome.tabs.sendMessage(tab.id, {
-        action: "showPopup",
-        word: selectedText,
-        url: `https://sophiary-web.com/search/en-ja/${encodeURIComponent(selectedText.toLowerCase())}`
-      });
+      // Open Sophiary in a new tab
+      const url = `https://sophiary-web.com/search/en-ja/${encodeURIComponent(selectedText.toLowerCase())}`;
+      chrome.tabs.create({ url });      
     }
   }
 });
