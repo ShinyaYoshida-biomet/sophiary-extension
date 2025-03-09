@@ -1,21 +1,21 @@
-// コンテキストメニュー項目の作成
+// Create context menu item
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
     id: "sophiarySearch",
-    title: "Sophiaryで「%s」を検索",
+    title: "Search \"%s\" on Sophiary",
     contexts: ["selection"]
   });
 });
 
-// メニュー項目がクリックされたときの処理
+// Handle menu item click
 chrome.contextMenus.onClicked.addListener((info, tab) => {
   if (info.menuItemId === "sophiarySearch" && info.selectionText) {
-    // 選択されたテキストを取得
+    // Get the selected text
     const selectedText = info.selectionText.trim();
 
-    // 単語が実際に選択されたか確認
+    // Check if a word is actually selected
     if (selectedText) {
-      // ポップアップを表示するためのメッセージをコンテンツスクリプトに送信
+      // Send a message to the content script to display the popup
       chrome.tabs.sendMessage(tab.id, {
         action: "showPopup",
         word: selectedText,
