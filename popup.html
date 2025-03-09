@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sophiary Dictionary</title>
+  <style>
+    body {
+      width: 320px;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #4a6cf7;
+      color: white;
+      padding: 12px;
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+      font-size: 18px;
+    }
+    .content {
+      padding: 16px;
+    }
+    .search-box {
+      display: flex;
+      margin-bottom: 16px;
+    }
+    input {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px 0 0 4px;
+    }
+    button {
+      padding: 8px 16px;
+      background: #4a6cf7;
+      color: white;
+      border: none;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+    }
+    .instructions {
+      font-size: 13px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Sophiary Dictionary</h1>
+  </header>
+  <div class="content">
+    <div class="search-box">
+      <input type="text" id="word-input" placeholder="英単語を入力">
+      <button id="search-button">検索</button>
+    </div>
+    <p class="instructions">
+      または、ウェブページ上の単語を選択して右クリックし、「Sophiaryで検索」を選択してください。
+    </p>
+  </div>
+  <script src="utils/partOfSpeech.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
